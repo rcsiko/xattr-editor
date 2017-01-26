@@ -176,13 +176,15 @@ extension AttributeInspectorWindowController: NSTableViewDataSource {
 
 extension AttributeInspectorWindowController: NSTextDelegate {
 
-    func textDidEndEditing(_ notification: Notification) {
+    func textDidChange(_ notification: Notification) {
         guard let editor = notification.object as? NSTextView else { return }
         guard let attribute = selectedAttribute else { return }
         if editor.string == attribute.value { return }
 
         selectedAttribute!.value = editor.string
+    }
 
+    func textDidEndEditing(_ notification: Notification) {
         saveExtendedAttributes(nil)
     }
 }
