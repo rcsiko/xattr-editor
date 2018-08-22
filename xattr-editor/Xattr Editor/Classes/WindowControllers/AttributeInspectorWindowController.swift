@@ -12,7 +12,7 @@ class AttributeInspectorWindowController: NSWindowController {
     // MARK: Properties
 
     @IBOutlet weak var tableView: NSTableView?
-    @IBOutlet weak var attrbuteValueField: NSTextView!
+    @IBOutlet weak var attributeValueField: NSTextView!
     @IBOutlet weak var refreshButton: NSButton!
     @IBOutlet weak var addButton: NSButton!
     @IBOutlet weak var removeButton: NSButton!
@@ -41,6 +41,8 @@ class AttributeInspectorWindowController: NSWindowController {
         refreshButton.image = NSImage(named: NSImageNameRefreshTemplate)
         addButton.image = NSImage(named: NSImageNameAddTemplate)
         removeButton.image = NSImage(named: NSImageNameRemoveTemplate)
+        
+        attributeValueField.isAutomaticQuoteSubstitutionEnabled = false
     }
 
     // MARK: Utils
@@ -57,7 +59,7 @@ class AttributeInspectorWindowController: NSWindowController {
     }
 
     func updateAttributeValueField(withAttribute attribute: Attribute?) {
-        attrbuteValueField.string = attribute?.value ?? ""
+        attributeValueField.string = attribute?.value ?? ""
     }
 
     func showErrorModal(_ error: NSError) {
@@ -142,7 +144,7 @@ extension AttributeInspectorWindowController: NSTableViewDelegate {
             return nil
         }
 
-        if let cell = tableView.make(withIdentifier: "AttributeCellIdentifier", owner: nil) as? AttributeCellVeiw {
+        if let cell = tableView.make(withIdentifier: "AttributeCellIdentifier", owner: nil) as? AttributeCellView {
             cell.attribute = attr
             cell.attributeDidChangeCallback = { [weak self] in
                 self?.saveExtendedAttributes(nil)

@@ -17,7 +17,7 @@
 		FBC0D2CF1E34BA6100A3E79B /* AttributeInspectorWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC0D2C81E34BA6100A3E79B /* AttributeInspectorWindowController.swift */; };
 		FBC0D2D01E34BA6100A3E79B /* OpenFileWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBC0D2C91E34BA6100A3E79B /* OpenFileWindow.xib */; };
 		FBC0D2D11E34BA6100A3E79B /* OpenFileWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC0D2CA1E34BA6100A3E79B /* OpenFileWindowController.swift */; };
-		FBC0D2D41E34BDD200A3E79B /* AttributeCellVeiw.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC0D2D31E34BDD200A3E79B /* AttributeCellVeiw.swift */; };
+		FBC0D2D41E34BDD200A3E79B /* AttributeCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC0D2D31E34BDD200A3E79B /* AttributeCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,7 +33,7 @@
 		FBC0D2C81E34BA6100A3E79B /* AttributeInspectorWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeInspectorWindowController.swift; sourceTree = "<group>"; };
 		FBC0D2C91E34BA6100A3E79B /* OpenFileWindow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OpenFileWindow.xib; sourceTree = "<group>"; };
 		FBC0D2CA1E34BA6100A3E79B /* OpenFileWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OpenFileWindowController.swift; sourceTree = "<group>"; };
-		FBC0D2D31E34BDD200A3E79B /* AttributeCellVeiw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeCellVeiw.swift; sourceTree = "<group>"; };
+		FBC0D2D31E34BDD200A3E79B /* AttributeCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AttributeCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,7 +124,7 @@
 		FBC0D2D21E34BDB700A3E79B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				FBC0D2D31E34BDD200A3E79B /* AttributeCellVeiw.swift */,
+				FBC0D2D31E34BDD200A3E79B /* AttributeCellView.swift */,
 				A101B0111E35FFF500C432C6 /* DragDestinationView.swift */,
 			);
 			path = Views;
@@ -207,7 +207,7 @@
 				FBC0D2CD1E34BA6100A3E79B /* Attribute.swift in Sources */,
 				FBC0D2CB1E34BA6100A3E79B /* AppDelegate.swift in Sources */,
 				A101B0121E35FFF500C432C6 /* DragDestinationView.swift in Sources */,
-				FBC0D2D41E34BDD200A3E79B /* AttributeCellVeiw.swift in Sources */,
+				FBC0D2D41E34BDD200A3E79B /* AttributeCellView.swift in Sources */,
 				FBC0D2CF1E34BA6100A3E79B /* AttributeInspectorWindowController.swift in Sources */,
 				FBC0D2CC1E34BA6100A3E79B /* URL+XAttr.swift in Sources */,
 			);
