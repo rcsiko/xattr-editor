@@ -1,5 +1,5 @@
 //
-//  AttributeCellVeiw.swift
+//  AttributeCellView.swift
 //  Xattr Editor
 //
 //  Created by Richard Csiko on 2017. 01. 22..
@@ -7,7 +7,7 @@
 
 import Cocoa
 
-class AttributeCellVeiw: NSTableCellView {
+class AttributeCellView: NSTableCellView {
 
     public var attributeDidChangeCallback: (() -> ())?
 

@@ -47,5 +47,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         return true
     }
+    
+    func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        if flag {
+            return false
+        } else {
+            openWindowController.window?.makeKeyAndOrderFront(nil);
+            return true
+        }
+    }
 }
-
