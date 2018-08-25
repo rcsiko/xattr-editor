@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		118101C2212FEC4200B0BDEF /* NSTextView+LineNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118101C1212FEC4200B0BDEF /* NSTextView+LineNumber.swift */; };
+		118101C4212FEC7200B0BDEF /* LineNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118101C3212FEC7200B0BDEF /* LineNumberView.swift */; };
 		A101B0121E35FFF500C432C6 /* DragDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A101B0111E35FFF500C432C6 /* DragDestinationView.swift */; };
 		FB8A8B0D1E336D0800908B25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB8A8B0C1E336D0800908B25 /* Assets.xcassets */; };
 		FB8A8B101E336D0800908B25 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB8A8B0E1E336D0800908B25 /* MainMenu.xib */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		118101C1212FEC4200B0BDEF /* NSTextView+LineNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSTextView+LineNumber.swift"; sourceTree = "<group>"; };
+		118101C3212FEC7200B0BDEF /* LineNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineNumberView.swift; sourceTree = "<group>"; };
 		A101B0111E35FFF500C432C6 /* DragDestinationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DragDestinationView.swift; sourceTree = "<group>"; };
 		FB8A8B071E336D0800908B25 /* Xattr Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Xattr Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB8A8B0C1E336D0800908B25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				FBC0D2C31E34BA6100A3E79B /* URL+XAttr.swift */,
+				118101C1212FEC4200B0BDEF /* NSTextView+LineNumber.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,6 +131,7 @@
 			children = (
 				FBC0D2D31E34BDD200A3E79B /* AttributeCellView.swift */,
 				A101B0111E35FFF500C432C6 /* DragDestinationView.swift */,
+				118101C3212FEC7200B0BDEF /* LineNumberView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,8 +232,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBC0D2D11E34BA6100A3E79B /* OpenFileWindowController.swift in Sources */,
+				118101C4212FEC7200B0BDEF /* LineNumberView.swift in Sources */,
 				FBC0D2CD1E34BA6100A3E79B /* Attribute.swift in Sources */,
 				FBC0D2CB1E34BA6100A3E79B /* AppDelegate.swift in Sources */,
+				118101C2212FEC4200B0BDEF /* NSTextView+LineNumber.swift in Sources */,
 				A101B0121E35FFF500C432C6 /* DragDestinationView.swift in Sources */,
 				FBC0D2D41E34BDD200A3E79B /* AttributeCellView.swift in Sources */,
 				FBC0D2CF1E34BA6100A3E79B /* AttributeInspectorWindowController.swift in Sources */,
