@@ -137,6 +137,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB8A8B141E336D0800908B25 /* Build configuration list for PBXNativeTarget "Xattr Editor" */;
 			buildPhases = (
+				A164B44121333C6600E11E3F /* SwiftLint */,
 				FB8A8B031E336D0800908B25 /* Sources */,
 				FB8A8B041E336D0800908B25 /* Frameworks */,
 				FB8A8B051E336D0800908B25 /* Resources */,
@@ -197,6 +198,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A164B44121333C6600E11E3F /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB8A8B031E336D0800908B25 /* Sources */ = {

@@ -41,7 +41,7 @@ class AttributeInspectorWindowController: NSWindowController {
         refreshButton.image = NSImage(named: NSImage.refreshTemplateName)
         addButton.image = NSImage(named: NSImage.addTemplateName)
         removeButton.image = NSImage(named: NSImage.removeTemplateName)
-        
+
         attributeValueField.isAutomaticQuoteSubstitutionEnabled = false
     }
 
@@ -76,14 +76,12 @@ class AttributeInspectorWindowController: NSWindowController {
         guard let attributes = fileAttributes else { return }
         guard let url = fileURL else { return }
 
-        for attribute in attributes {
-            if attribute.isModified {
-                do {
-                    try url.removeAttribute(name: attribute.originalName)
-                    try url.setAttribute(name: attribute.name, value: attribute.value ?? "")
-                } catch let error as NSError {
-                    showErrorModal(error)
-                }
+        for attribute in attributes where attribute.isModified {
+            do {
+                try url.removeAttribute(name: attribute.originalName)
+                try url.setAttribute(name: attribute.name, value: attribute.value ?? "")
+            } catch let error as NSError {
+                showErrorModal(error)
             }
         }
     }
@@ -111,7 +109,7 @@ class AttributeInspectorWindowController: NSWindowController {
         alert.accessoryView = inputField
 
         alert.beginSheetModal(for: self.window!) { [weak self] response in
-            if (response == .alertSecondButtonReturn || inputField.stringValue.isEmpty) {
+            if response == .alertSecondButtonReturn || inputField.stringValue.isEmpty {
                 return
             }
 

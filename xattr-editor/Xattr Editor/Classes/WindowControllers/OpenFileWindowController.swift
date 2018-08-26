@@ -11,7 +11,7 @@ class OpenFileWindowController: NSWindowController {
 
     @IBOutlet weak var dragView: DragDestinationView!
 
-    public var openCallback: ((_ url: URL) -> ())? {
+    public var openCallback: ((_ url: URL) -> Void)? {
         didSet {
             dragView.dropCallback = openCallback
         }

@@ -14,7 +14,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var inspectorWindowControllers = [NSWindowController]()
 
     func openFileAttributeInspector(forFile fileURL: URL) {
-        let attributeInspectorWindowController = AttributeInspectorWindowController(windowNibName: "AttributeInspectorWindow")
+        let attributeInspectorWindowController =
+            AttributeInspectorWindowController(windowNibName: "AttributeInspectorWindow")
         inspectorWindowControllers.append(attributeInspectorWindowController)
 
         attributeInspectorWindowController.fileURL = fileURL
@@ -47,12 +48,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         return true
     }
-    
+
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
         if flag {
             return false
         } else {
-            openWindowController.window?.makeKeyAndOrderFront(nil);
+            openWindowController.window?.makeKeyAndOrderFront(nil)
             return true
         }
     }

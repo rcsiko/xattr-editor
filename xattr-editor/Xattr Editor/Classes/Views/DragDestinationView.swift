@@ -20,7 +20,7 @@ extension NSPasteboard.PasteboardType {
 
 class DragDestinationView: NSView {
 
-    var dropCallback: ((_ url: URL) -> ())?
+    var dropCallback: ((_ url: URL) -> Void)?
 
     private enum Appearance {
         static let lineWidth: CGFloat = 10.0
@@ -44,7 +44,7 @@ class DragDestinationView: NSView {
 
         NSColor.selectedControlColor.set()
 
-        let path = NSBezierPath(rect:bounds)
+        let path = NSBezierPath(rect: bounds)
         path.lineWidth = Appearance.lineWidth
         path.stroke()
     }
@@ -67,15 +67,15 @@ class DragDestinationView: NSView {
         isReceivingDrag = false
         let pasteBoard = draggingInfo.draggingPasteboard
 
-        guard let url = pasteBoard.readObjects(forClasses: [NSURL.self], options:nil) as? [URL] else { return false }
+        guard let url = pasteBoard.readObjects(forClasses: [NSURL.self], options: nil) as? [URL] else { return false }
         guard let callback = dropCallback else { return false }
 
         for url in url {
             NSLog("\(url)")
             callback(url)
         }
-        
+
         return false
     }
-    
+
 }

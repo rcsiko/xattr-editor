@@ -9,7 +9,7 @@ import Cocoa
 
 class AttributeCellView: NSTableCellView {
 
-    public var attributeDidChangeCallback: (() -> ())?
+    public var attributeDidChangeCallback: (() -> Void)?
 
     var attribute: Attribute? {
         didSet {
@@ -24,11 +24,11 @@ class AttributeCellView: NSTableCellView {
     }
 
     @IBAction func didEndEditing(_ sender: NSTextField) {
-        guard let _ = attribute else { return }
+        guard let attribute = attribute else { return }
         guard let callback = attributeDidChangeCallback else { return }
 
-        attribute!.name = sender.stringValue
+        attribute.name = sender.stringValue
         callback()
     }
-    
+
 }
