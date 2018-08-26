@@ -11,7 +11,6 @@ fileprivate let XattrResultError: Int32 = -1
 
 extension URL {
 
-
     func setAttribute(name: String, value: String) throws {
         guard let data = value.data(using: String.Encoding.utf8, allowLossyConversion: false) else {
             throw NSError(domain: String(cString: strerror(errno)), code: Int(errno), userInfo: nil)
@@ -37,7 +36,7 @@ extension URL {
             throw NSError(domain: String(cString: strerror(errno)), code: Int(errno), userInfo: nil)
         }
 
-        let bytes = UnsafeMutableRawPointer.allocate(bytes: length, alignedTo: 0)
+        let bytes = UnsafeMutableRawPointer.allocate(byteCount: length, alignment: 0)
         if getxattr(self.path, name, bytes, length, 0, 0) == -1 {
             throw NSError(domain: String(cString: strerror(errno)), code: Int(errno), userInfo: nil)
         }

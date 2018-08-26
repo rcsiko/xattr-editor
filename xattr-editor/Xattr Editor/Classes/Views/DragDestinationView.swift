@@ -7,6 +7,17 @@
 
 import Cocoa
 
+// https://stackoverflow.com/a/46514780
+extension NSPasteboard.PasteboardType {
+    static let backwardsCompatibleFileURL: NSPasteboard.PasteboardType = {
+        if #available(OSX 10.13, *) {
+            return NSPasteboard.PasteboardType.fileURL
+        } else {
+            return NSPasteboard.PasteboardType(kUTTypeFileURL as String)
+        }
+    } ()
+}
+
 class DragDestinationView: NSView {
 
     var dropCallback: ((_ url: URL) -> ())?
@@ -22,7 +33,7 @@ class DragDestinationView: NSView {
     }
 
     override func awakeFromNib() {
-        register(forDraggedTypes: [NSURLPboardType])
+        registerForDraggedTypes([.backwardsCompatibleFileURL])
     }
 
     override func draw(_ dirtyRect: NSRect) {
@@ -54,7 +65,7 @@ class DragDestinationView: NSView {
     override func performDragOperation(_ draggingInfo: NSDraggingInfo) -> Bool {
 
         isReceivingDrag = false
-        let pasteBoard = draggingInfo.draggingPasteboard()
+        let pasteBoard = draggingInfo.draggingPasteboard
 
         guard let url = pasteBoard.readObjects(forClasses: [NSURL.self], options:nil) as? [URL] else { return false }
         guard let callback = dropCallback else { return false }

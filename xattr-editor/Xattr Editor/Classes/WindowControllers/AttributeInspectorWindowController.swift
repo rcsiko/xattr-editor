@@ -38,9 +38,9 @@ class AttributeInspectorWindowController: NSWindowController {
         super.windowDidLoad()
         tableView?.reloadData()
 
-        refreshButton.image = NSImage(named: NSImageNameRefreshTemplate)
-        addButton.image = NSImage(named: NSImageNameAddTemplate)
-        removeButton.image = NSImage(named: NSImageNameRemoveTemplate)
+        refreshButton.image = NSImage(named: NSImage.refreshTemplateName)
+        addButton.image = NSImage(named: NSImage.addTemplateName)
+        removeButton.image = NSImage(named: NSImage.removeTemplateName)
         
         attributeValueField.isAutomaticQuoteSubstitutionEnabled = false
     }
@@ -111,7 +111,7 @@ class AttributeInspectorWindowController: NSWindowController {
         alert.accessoryView = inputField
 
         alert.beginSheetModal(for: self.window!) { [weak self] response in
-            if (response == NSAlertSecondButtonReturn || inputField.stringValue.isEmpty) {
+            if (response == .alertSecondButtonReturn || inputField.stringValue.isEmpty) {
                 return
             }
 
@@ -144,7 +144,9 @@ extension AttributeInspectorWindowController: NSTableViewDelegate {
             return nil
         }
 
-        if let cell = tableView.make(withIdentifier: "AttributeCellIdentifier", owner: nil) as? AttributeCellView {
+        let identifier = NSUserInterfaceItemIdentifier(rawValue: "AttributeCellIdentifier")
+
+        if let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? AttributeCellView {
             cell.attribute = attr
             cell.attributeDidChangeCallback = { [weak self] in
                 self?.saveExtendedAttributes(nil)
