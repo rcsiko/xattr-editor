@@ -43,6 +43,8 @@ class AttributeInspectorWindowController: NSWindowController {
         removeButton.image = NSImage(named: NSImage.removeTemplateName)
 
         attributeValueField.isAutomaticQuoteSubstitutionEnabled = false
+
+        attributeValueField.showLineNumberView()
     }
 
     // MARK: Utils
