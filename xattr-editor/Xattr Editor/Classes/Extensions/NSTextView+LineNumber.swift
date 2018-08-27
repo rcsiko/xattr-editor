@@ -10,19 +10,22 @@
 import Cocoa
 import ObjectiveC
 
-var LineNumberViewAssociatedObjectKey: UInt8 = 0
+var lineNumberViewAssociatedObjectKey: UInt8 = 0
 
 extension NSTextView {
-    
-    var lineNumberView: LineNumberView {
+
+    var lineNumberView: LineNumberView? {
         get {
-            return objc_getAssociatedObject(self, &LineNumberViewAssociatedObjectKey) as! LineNumberView
+            return objc_getAssociatedObject(self, &lineNumberViewAssociatedObjectKey) as? LineNumberView
         }
         set {
-            objc_setAssociatedObject(self, &LineNumberViewAssociatedObjectKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self,
+                                     &lineNumberViewAssociatedObjectKey,
+                                     newValue,
+                                     objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
-    
+
     func showLineNumberView() {
         font = font ?? NSFont.systemFont(ofSize: 16)
         if let scrollView = enclosingScrollView {
@@ -31,18 +34,33 @@ extension NSTextView {
             scrollView.hasVerticalRuler = true
             scrollView.rulersVisible = true
         }
-        
+
         postsFrameChangedNotifications = true
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(_frameDidChange), name: NSNotification.Name.NSViewFrameDidChange, object: self)
-        NotificationCenter.default.addObserver(self, selector: #selector(_textDidChange), name: NSNotification.Name.NSTextDidChange, object: self)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textView_frameDidChange),
+                                               name: NSTextView.frameDidChangeNotification,
+                                               object: self)
+
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textView_textDidChange),
+                                               name: NSTextView.didChangeNotification,
+                                               object: self)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(textView_selectionDidChange),
+                                               name: NSTextView.didChangeSelectionNotification,
+                                               object: self)
     }
-    
-    @objc func _frameDidChange(notification: NSNotification) {
-        lineNumberView.needsDisplay = true
+
+    @objc func textView_frameDidChange(notification: NSNotification) {
+        lineNumberView?.needsDisplay = true
     }
-    
-    @objc func _textDidChange(notification: NSNotification) {
-        lineNumberView.needsDisplay = true
+
+    @objc func textView_textDidChange(notification: NSNotification) {
+        lineNumberView?.needsDisplay = true
+    }
+
+    @objc func textView_selectionDidChange(notification: NSNotification) {
+        lineNumberView?.needsDisplay = true
     }
 }
